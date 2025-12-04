@@ -1,7 +1,7 @@
 {% load static %}
 <html>
 <head>
-    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+   <a href="{% url 'admin_logout_override' %}">Log out</a>
     <title>Dashboard for students</title>
 </head>
 
@@ -11,6 +11,7 @@
     <div class="dashboard-card">
         <h2>WELCOME Student !</h2>
         <p>You have successfully logged in.</p>  
+        
     </div>
 </div>
 

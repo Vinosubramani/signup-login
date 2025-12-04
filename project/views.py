@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login,logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login,logout,logout as auth_logout
+
+
 
 def user_login(request):
     if request.method == "POST":
@@ -17,6 +18,8 @@ def user_login(request):
             if user.is_superuser:
                 print(user)
                 return redirect('/master-admin/')   # for superuser
+                
+                #return redirect('/auth_logout/')
             elif user.is_staff:
                 print(user)
                 print("Staff")
@@ -31,5 +34,18 @@ def user_login(request):
     return render(request, 'login.html')
 
 
-def logout(request):
-    return redirect(user_login)
+def logout_view(request):
+
+
+    
+    is_superuser = request.user.is_superuser
+    auth_logout(request)
+
+    if is_superuser:
+        return redirect('/admin/')
+    else:
+        return redirect('/')
+        
+    
+
+    
