@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     
 ]
 
+LOGOUT_REDIRECT_URL = '/'
+
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,11 +60,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / "templates"], 
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
