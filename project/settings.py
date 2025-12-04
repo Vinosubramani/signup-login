@@ -141,6 +141,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+SUPERBASE_URL = os.getenv('SUPERBASE_URL')
+SUPERBASE_ANON_KEY = os.getenv('SUPERBASE_ANON_URL')
+SUPERBASE_SERVICE_ROLE_KEY = os.getenv('SUPERBASE_SERVICE_ROLE_KEY')
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",   # your development static folder
